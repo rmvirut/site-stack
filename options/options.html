@@ -2,31 +2,19 @@
 <html>
 
 <head>
-    <title>My Test Extension Options</title>
-    <link rel="stylesheet" href="/options/options.css"/>
+    <title>What CMS Settings</title>
+    <link rel="stylesheet" href="/popup/normalize.css" />
+    <link rel="stylesheet" href="/popup/skeleton.css" />
+    <link rel="stylesheet" href="/options/options.css" />
 </head>
 
 <body>
     <label for="api">
-        What CMS API Key
-        <input name="api" type="text" id="api-key">
+        WhatCMS.org API Key
     </label>
-    <select id="color">
-        <option value="red">red</option>
-        <option value="green">green</option>
-        <option value="blue">blue</option>
-        <option value="yellow">yellow</option>
-    </select>
-
-    <label>
-        <input type="checkbox" id="like" />
-        I like colors.
-    </label>
-
-    <div id="status"></div>
-    <button id="save">Save</button>
-
-    <script src="options.js"></script>
+    <input name="api" type="text" id="api-key">
+    <button id="save" class="button button-primary">Save</button>
+    <script src="/scripts/scripts.js"></script>
 </body>
 
 </html>

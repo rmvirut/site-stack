@@ -61,3 +61,8 @@ function main() {
 }
 
 main();
+
+//TODO - add error handling for when no API key present
+//TODO - add ability to get and store api key in options page
+//TODO - design options page
+//TODO - add links to whatcms.org
