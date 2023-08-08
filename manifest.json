@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "What CMS?",
+    "version": "1.0",
+    "action": {
+        "default_popup": "popup/popup.html"
+    },
+    "description": "Base Level Extension",
+    "author": "dijidomain@gmail.com",
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
+    "options_ui": {
+        "page": "options/options.html",
+        "open_in_tab": false
+    }
+}
