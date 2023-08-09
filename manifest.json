@@ -6,7 +6,7 @@
         "default_popup": "popup/popup.html"
     },
     "description": "Find out which web technologies a site is built with",
-    "author": "dijidomain@gmail.com",
+    "author": "kojoacquah7@gmail.com",
     "permissions": [
         "storage",
         "activeTab",
