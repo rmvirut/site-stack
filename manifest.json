@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "What CMS is it?",
-    "version": "1.0",
+    "version": "0.0.1",
     "action": {
         "default_popup": "popup/popup.html"
     },
@@ -9,11 +9,10 @@
     "author": "kojoacquah7@gmail.com",
     "permissions": [
         "storage",
-        "activeTab",
-        "scripting"
+        "activeTab"
     ],
     "options_ui": {
         "page": "options/options.html",
-        "open_in_tab": true
+        "open_in_tab": false
     }
 }
