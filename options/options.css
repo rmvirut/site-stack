@@ -1,0 +1,9 @@
+body {
+    min-width: 500px;
+    min-height: 500px;
+    margin-top: 2em;
+}
+
+#status {
+    display: none;
+}

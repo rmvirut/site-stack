@@ -27,9 +27,13 @@ function tabulateResults(whatRes) {
 
 }
 
-function createTemplate() {
-
-}
+// Restores select box and checkbox state using the preferences
+// stored in chrome.storage.
+const restoreOptions = () => {
+    chrome.storage.local.get({
+        whatCmsApiKey
+    }, main)
+};
 
 function main() {
 

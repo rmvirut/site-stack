@@ -17,18 +17,19 @@ const saveOptions = () => {
     );
 };
 
-// Restores select box and checkbox state using the preferences
-// stored in chrome.storage.
-const restoreOptions = () => {
-    chrome.storage.sync.get(
-        { favoriteColor: 'red', likesColor: true, whatCmsApiKey: "" },
-        (items) => {
-            document.getElementById('color').value = items.favoriteColor;
-            document.getElementById('like').checked = items.likesColor;
-            document.getElementById('api-key').value = items.whatCmsApiKey;
-        }
-    );
-};
+
+
+function saveOptions() {
+    const whatCMSapi = document.getElementById("api-key").value;
+    alert(whatCMSapi);
+    chrome.storage.local.set({ "whatCMSApi": whatCMSapi }).then(() => {
+        let status = document.getElementById("status");
+        status.property
+    });
+}
+
+
+
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
 document.getElementById('save').addEventListener('click', saveOptions);

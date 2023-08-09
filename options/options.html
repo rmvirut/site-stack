@@ -9,11 +9,25 @@
 </head>
 
 <body>
-    <label for="api">
-        WhatCMS.org API Key
-    </label>
-    <input name="api" type="text" id="api-key">
-    <button id="save" class="button button-primary">Save</button>
+    <div class="container">
+        <form>
+            <div class="row">
+                <label for="api">
+                    WhatCMS.org API Key
+                </label>
+                <input name="api" type="text" id="api-key" class="u-full-width">
+            </div>
+            <div class="row">
+                <button id="save" class="button button-primary">Save</button>
+            </div>
+            <div class="row">
+                Don't have a key? <a href="https://whatcms.org/Account?cmd=RegisterForm" target="_blank">Get one</a>
+            </div>
+
+        </form>
+
+        <div class="row"><span id="status">Success!</span></div>
+    </div>
     <script src="/scripts/scripts.js"></script>
 </body>
 
