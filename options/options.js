@@ -1,35 +1,35 @@
-// Saves options to chrome.storage
-const saveOptions = () => {
-    const color = document.getElementById('color').value;
-    const likesColor = document.getElementById('like').checked;
-    const apiKey = document.getElementById('api-key').value;
-
-    chrome.storage.sync.set(
-        { favoriteColor: color, likesColor: likesColor },
-        () => {
-            // Update status to let user know options were saved.
-            const status = document.getElementById('status');
-            status.textContent = 'Options saved.';
-            setTimeout(() => {
-                status.textContent = '';
-            }, 750);
-        }
-    );
-};
-
-
-
+/**
+ * Saves options to chrome.storage
+ * 
+ */
 function saveOptions() {
-    const whatCMSapi = document.getElementById("api-key").value;
-    alert(whatCMSapi);
-    chrome.storage.local.set({ "whatCMSApi": whatCMSapi }).then(() => {
-        let status = document.getElementById("status");
-        status.property
-    });
+    const apiKey = document.getElementById("api-key").value;
+    const regex = /^[a-zA-Z0-9]{70}$/gm;
+    if (regex.exec(apiKey)) {
+        chrome.storage.local.set({ "whatApiKey": apiKey }).then(() => {
+            showStatus("Success!", 2000);
+        }).catch((err) => {
+            console.log(err);
+            showStatus("Failed", 2000);
+        })
+    } else {
+        showStatus("Failed - Key is not valid", 3000)
+    }
 }
 
+function showStatus(message, timeInMilliSeconds) {
+    const status = document.getElementById("status");
+    status.innerHTML = message;
+    status.style.display = "block";
+    setTimeout(() => {
+        status.style.display = "none";
+        status.innerHTML = "";
+    }, timeInMilliSeconds)
 
 
+}
 
-document.addEventListener('DOMContentLoaded', restoreOptions);
-document.getElementById('save').addEventListener('click', saveOptions);
+//document.addEventListener('DOMContentLoaded', restoreOptions);
+document.getElementById("save").addEventListener("click", saveOptions)
+console.log(document.getElementById("save"))
+console.log("options loaded")

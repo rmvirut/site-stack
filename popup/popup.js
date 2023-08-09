@@ -29,11 +29,11 @@ function tabulateResults(whatRes) {
 
 // Restores select box and checkbox state using the preferences
 // stored in chrome.storage.
-const restoreOptions = () => {
+/*const restoreOptions = () => {
     chrome.storage.local.get({
         whatCmsApiKey
     }, main)
-};
+};*/
 
 function main() {
 
@@ -41,11 +41,9 @@ function main() {
     chrome.tabs.query({ active: true, lastFocusedWindow: true }).then(res => {
         if (res != "undefined") {
             let currentTabUrl = res[0].url
-            console.log(currentTabUrl)
 
             //build query string
             let REQUEST_STRING = `${WHAT_CMS_URL}?key=${WHAT_CMS_KEY}&url=${currentTabUrl}`;
-            console.log(REQUEST_STRING);
 
             fetch(REQUEST_STRING, {
                 method: "GET"
