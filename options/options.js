@@ -1,34 +1,56 @@
-// Saves options to chrome.storage
-const saveOptions = () => {
-    const color = document.getElementById('color').value;
-    const likesColor = document.getElementById('like').checked;
-    const apiKey = document.getElementById('api-key').value;
+const regex = /^[a-zA-Z0-9]{70}$/gm;
 
-    chrome.storage.sync.set(
-        { favoriteColor: color, likesColor: likesColor },
-        () => {
-            // Update status to let user know options were saved.
-            const status = document.getElementById('status');
-            status.textContent = 'Options saved.';
-            setTimeout(() => {
-                status.textContent = '';
-            }, 750);
+
+
+/**
+ * Saves options to chrome.storage
+ * 
+ */
+function saveOptions() {
+    const apiKey = document.getElementById("api-key").value;
+    if (regex.exec(apiKey)) {
+        // chrome.storage.local.set({ whatApi: apiKey }).then(() => {
+        //     console.log("This is working")
+        //     console.log(apiKey);
+        // })
+
+        let temp = "1239i2093u90x12e09mu1209u1092ezu09128e09182809ex80912z09z23890e82309e8";
+        chrome.storage.local.set({ whatApiKey: apiKey }).then(() => {
+            showStatus("Success!", 2000);
+            chrome.storage.local.get(["whatApiKey"]).then((result) => {
+                console.log("I stored the value of " + result.whatApiKey)
+            })
+        })
+
+        chrome.storage.sync.set({ key: apiKey }).then(() => {
+            console.log("Sync worked")
+        })
+    } else {
+        showStatus("Failed - Key is not valid", 3000)
+    }
+}
+
+function showStatus(message, timeInMilliSeconds) {
+    const status = document.getElementById("status");
+    status.innerHTML = message;
+    status.style.display = "block";
+    setTimeout(() => {
+        status.style.display = "none";
+        status.innerHTML = "";
+    }, timeInMilliSeconds)
+}
+
+function insertKey() {
+    chrome.storage.local.get(["whatApiKey"]).then((result) => {
+        if (regex.exec(result.whatApiKey)) {
+            document.getElementById("api-key").value = result.whatApiKey;
         }
-    );
-};
+    })
+}
 
-// Restores select box and checkbox state using the preferences
-// stored in chrome.storage.
-const restoreOptions = () => {
-    chrome.storage.sync.get(
-        { favoriteColor: 'red', likesColor: true, whatCmsApiKey: "" },
-        (items) => {
-            document.getElementById('color').value = items.favoriteColor;
-            document.getElementById('like').checked = items.likesColor;
-            document.getElementById('api-key').value = items.whatCmsApiKey;
-        }
-    );
-};
 
-document.addEventListener('DOMContentLoaded', restoreOptions);
-document.getElementById('save').addEventListener('click', saveOptions);
+document.addEventListener('DOMContentLoaded', insertKey);
+document.getElementById("save").addEventListener("click", saveOptions)
+chrome.storage.onChanged.addListener((changes, namespace) => {
+    console.log("I have a new value")
+})

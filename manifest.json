@@ -1,16 +1,15 @@
 {
     "manifest_version": 3,
-    "name": "What CMS?",
-    "version": "1.0",
+    "name": "What CMS is it?",
+    "version": "0.0.1",
     "action": {
         "default_popup": "popup/popup.html"
     },
-    "description": "Base Level Extension",
-    "author": "dijidomain@gmail.com",
+    "description": "Find out which web technologies a site is built with",
+    "author": "kojoacquah7@gmail.com",
     "permissions": [
         "storage",
-        "activeTab",
-        "scripting"
+        "activeTab"
     ],
     "options_ui": {
         "page": "options/options.html",
