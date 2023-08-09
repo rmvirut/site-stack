@@ -1,11 +1,11 @@
 {
     "manifest_version": 3,
-    "name": "What CMS?",
+    "name": "What CMS is it?",
     "version": "1.0",
     "action": {
         "default_popup": "popup/popup.html"
     },
-    "description": "Base Level Extension",
+    "description": "Find out which web technologies a site is built with",
     "author": "dijidomain@gmail.com",
     "permissions": [
         "storage",

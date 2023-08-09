@@ -1,5 +1,6 @@
 const WHAT_CMS_URL = "https://whatcms.org/API/Tech"
-const WHAT_CMS_KEY = "wu12rotrm2ylstoaso5ybzsk2agvc48rh50a2a9gr7ppuc5uuxfc4li1xjcp6odzmbk2bn"
+let WHAT_CMS_KEY = ""
+const regex = /^[a-zA-Z0-9]{70}$/gm;
 
 function createResultRow(name, categories) {
     let categoryItems = "";
@@ -62,7 +63,18 @@ function main() {
 
 }
 
-main();
+chrome.storage.local.get(["whatApiKey"]).then((result) => {
+    if (regex.exec(result.whatApiKey)) {
+        console.log(result.whatApiKey)
+        WHAT_CMS_KEY = result.whatApiKey;
+        main();
+    } else {
+        let status = document.getElementById('status');
+        status.innerHTML = "No Api Key found. Add key in extension options <a href='/options/options.html' target='_blank'>here</a>"
+        status.style.display = "block";
+    }
+})
+
 
 //TODO - add error handling for when no API key present
 //TODO - add ability to get and store api key in options page
