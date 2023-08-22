@@ -5,6 +5,9 @@
     "action": {
         "default_popup": "popup/popup.html"
     },
+    "icons": {
+        "128": "images/icon128.png"
+    },
     "description": "Find out which web technologies a site is built with",
     "author": "kojoacquah7@gmail.com",
     "permissions": [
