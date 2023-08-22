@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "What CMS is it?",
+    "name": "What CMS",
     "version": "0.0.1",
     "action": {
         "default_popup": "popup/popup.html"
